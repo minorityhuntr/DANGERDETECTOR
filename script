@@ -1,0 +1,120 @@
+-- Instances
+
+local ScreenGui = Instance.new("ScreenGui")
+local ImageLabel = Instance.new("ImageLabel")
+local TextButton = Instance.new("ImageButton")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("ImageLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local danger = Instance.new("TextLabel")
+
+-- Properties
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageLabel.Parent = ScreenGui
+ImageLabel.BackgroundColor3 = Color3.new(0.333333, 1, 0.498039)
+ImageLabel.BorderColor3 = Color3.new(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.162626266, 0, 0.240506336, 0)
+ImageLabel.Size = UDim2.new(0, 668, 0, 214)
+ImageLabel.Image = "rbxassetid://572912080"
+
+TextButton.Name = "TextButton"
+TextButton.Parent = ImageLabel
+TextButton.BackgroundColor3 = Color3.new(1, 1, 1)
+TextButton.BackgroundTransparency = 1
+TextButton.Position = UDim2.new(0.633233547, 0, 0.84579438, 0)
+TextButton.Size = UDim2.new(0, 41, 0, 33)
+TextButton.Image = "rbxassetid://2790382281"
+TextButton.ImageColor3 = Color3.new(0.133333, 1, 1)
+TextButton.ScaleType = Enum.ScaleType.Slice
+TextButton.SliceCenter = Rect.new(4, 4, 252, 252)
+
+TextLabel.Parent = TextButton
+TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel.Size = UDim2.new(1, 0, 0.899999976, 0)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "recalculate"
+TextLabel.TextColor3 = Color3.new(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14
+TextLabel.TextWrapped = true
+
+TextLabel_2.Name = "TextLabel"
+TextLabel_2.Parent = ImageLabel
+TextLabel_2.BackgroundColor3 = Color3.new(1, 0.4, 0.25098)
+TextLabel_2.BackgroundTransparency = 1
+TextLabel_2.Position = UDim2.new(0.294910192, 0, 0.84579438, 0)
+TextLabel_2.Size = UDim2.new(0, 215, 0, 33)
+TextLabel_2.Image = "rbxassetid://2790382281"
+TextLabel_2.ImageColor3 = Color3.new(1, 0.584314, 0.305882)
+TextLabel_2.ScaleType = Enum.ScaleType.Slice
+TextLabel_2.SliceCenter = Rect.new(4, 4, 252, 252)
+
+TextLabel_3.Parent = TextLabel_2
+TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
+TextLabel_3.BackgroundTransparency = 1
+TextLabel_3.Position = UDim2.new(0.5, 0, 0.5, 0)
+TextLabel_3.Size = UDim2.new(1, 0, 0.899999976, 0)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "%"
+TextLabel_3.TextColor3 = Color3.new(0, 0, 0)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = ImageLabel
+TextLabel_4.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel_4.BackgroundTransparency = 1
+TextLabel_4.BorderColor3 = Color3.new(0, 0, 0)
+TextLabel_4.BorderSizePixel = 0
+TextLabel_4.Position = UDim2.new(0.0613772459, 0, 0, 0)
+TextLabel_4.Size = UDim2.new(0, 575, 0, 50)
+TextLabel_4.Font = Enum.Font.Creepster
+TextLabel_4.Text = "PRECENTAGE OF BLACK IN AREA"
+TextLabel_4.TextColor3 = Color3.new(0, 0, 0)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14
+TextLabel_4.TextTransparency = 0.05999999865889549
+TextLabel_4.TextWrapped = true
+
+danger.Name = "danger"
+danger.Parent = ImageLabel
+danger.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
+danger.BackgroundTransparency = 1
+danger.BorderColor3 = Color3.new(0, 0, 0)
+danger.BorderSizePixel = 0
+danger.Position = UDim2.new(0.386227548, 0, 0.649532735, 0)
+danger.Size = UDim2.new(0, 141, 0, 29)
+danger.Font = Enum.Font.Unknown
+danger.Text = "!!!!YOU ARE IN DANGER!!!"
+danger.TextColor3 = Color3.new(0, 0, 0)
+danger.TextSize = 14
+danger.TextTransparency = 1
+
+-- Scripts
+
+local function WEXAIA_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local button = script.Parent
+	local number = script.Parent.Parent.TextLabel.TextLabel
+	local gen = math.random
+	
+	button.MouseButton1Click:Connect(function()
+	local randomnumber = gen(1,100)	
+		number.Text = `{randomnumber}%`
+		
+		if randomnumber >= 50 then
+			script.Parent.Parent.danger.Transparency = 0
+		else
+			script.Parent.Parent.danger.Transparency = 1
+		end
+	end)
+end
+coroutine.wrap(WEXAIA_fake_script)()
